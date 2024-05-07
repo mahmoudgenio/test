@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SplashActivity3"
+    android:background="#363636"
+    >
+
+    <TextView
+        android:id="@+id/choose_driver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:textColor="#CCCCCC"
+        android:text="Choose driver"
+        />
+
+    <TextView
+        android:id="@+id/text_splash3"
+        android:layout_width="280dp"
+        android:layout_height="66dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/choose_driver"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#DCDCDC"
+        android:text="You can choose as 4 people as you want to drive the car"
+        />
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="270dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_splash3"
+        android:scaleType="center"
+        android:layout_marginBottom="230dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/car_splash3"
+        />
+
+    <ImageView
+        android:id="@+id/swipe_splash3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="140dp"
+        android:src="@drawable/swipe2"
+        />
+
+    <Button
+        android:id="@+id/btn_splash3"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="50dp"
+        android:text="Next"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:backgroundTint="#FF1522"
+        />
+
+    <TextView
+        android:id="@+id/skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Skip"
+        android:textColor="@color/white"
+        android:layout_margin="20dp"
+        android:textSize="20sp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

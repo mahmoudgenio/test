@@ -17,26 +17,38 @@
         android:layout_height="match_parent"
         tools:context=".RegisterActivity">
 
+
+        <ImageView
+            android:id="@+id/cars_parking"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="80dp"
+            app:layout_constraintBottom_toTopOf="@id/register_text"
+            android:src="@drawable/login_image" />
+
         <TextView
             android:id="@+id/register_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Register"
-            android:textColor="@color/primary_color"
-            android:textSize="30sp"
+            android:text="DRMMR"
             android:textStyle="bold"
+            android:textColor="#9E9D9D"
+            android:textSize="33sp"
+            app:layout_constraintTop_toBottomOf="@id/cars_parking"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/create_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create your new account"
-            android:textSize="18sp"
+            android:text="Create New Account"
+            android:textSize="28sp"
             android:textStyle="bold"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/register_text" />
@@ -47,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:orientation="vertical"
             android:weightSum="4"
@@ -60,7 +72,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/edit_text_rounded"
-                android:hint="Name"
+                android:hint="Username"
+                android:textColorHint="#848484"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
                 android:inputType="textPersonName"
                 android:padding="12dp" />
 
@@ -69,8 +84,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:textColorHint="#848484"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
                 android:layout_weight="1"
-
                 android:background="@drawable/edit_text_rounded"
                 android:hint="E-mail"
                 android:inputType="textEmailAddress"
@@ -82,7 +99,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:layout_weight="1"
-
+                android:textColorHint="#848484"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
                 android:background="@drawable/edit_text_rounded"
                 android:hint="Phone"
                 android:inputType="phone"
@@ -96,21 +115,27 @@
                 android:layout_weight="1"
                 android:background="@drawable/edit_text_rounded"
                 android:hint="Password"
+                android:textColorHint="#848484"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
                 android:inputType="textPassword"
                 android:padding="12dp" />
 
 
             <Button
                 android:id="@+id/btn1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/primary_color"
+                android:backgroundTint="#FF1522"
                 android:hint="Pick Images"
-                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
                 android:textColorHint="@color/white"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="70dp"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/password"
+                app:layout_constraintEnd_toEndOf="@id/password"
                 app:layout_constraintTop_toBottomOf="@id/password"/>
 
 
@@ -122,10 +147,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="50dp"
-            android:layout_marginBottom="80dp"
-            android:backgroundTint="@color/primary_color"
+            android:layout_marginBottom="90dp"
+            android:backgroundTint="#FF1522"
             android:padding="10dp"
             android:text="Sign up"
             android:textSize="20sp"
@@ -140,7 +165,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Already have an account?"
+            android:textColor="#848484"
             android:textSize="16sp"
+            android:textStyle="normal"
             app:layout_constraintStart_toStartOf="@id/sign_up_btn"
             app:layout_constraintTop_toBottomOf="@id/sign_up_btn" />
 
@@ -151,32 +178,13 @@
             android:layout_marginStart="6dp"
             android:layout_marginTop="8dp"
             android:text="Log in"
-            android:textColor="@color/primary_color"
+            android:textStyle="bold"
+            android:textColor="#FF1522"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/have_account"
             app:layout_constraintTop_toBottomOf="@id/sign_up_btn" />
 
-<!--       <ProgressBar-->
-<!--           android:id="@+id/progressBar_signUp"-->
-<!--           android:layout_width="wrap_content"-->
-<!--           android:layout_height="wrap_content"-->
-<!--           app:layout_constraintTop_toTopOf="parent"-->
-<!--           app:layout_constraintBottom_toBottomOf="parent"-->
-<!--           app:layout_constraintStart_toStartOf="parent"-->
-<!--           app:layout_constraintEnd_toEndOf="parent"-->
-<!--           android:visibility="gone"-->
-<!--           />-->
 
-<!--        <ProgressBar-->
-<!--            android:id="@+id/progressBar_SignUp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            android:visibility="gone"-->
-<!--            />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

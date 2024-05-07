@@ -1,6 +1,7 @@
 package com.example.testimages.ui.login
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.widget.Toast
 import androidx.lifecycle.LiveData
@@ -11,6 +12,7 @@ import com.example.testimages.Api.RetrofitService
 import com.example.testimages.EncryptSharedPreference
 import com.example.testimages.common.Message
 import com.example.testimages.common.SingleLiveEvent
+import com.example.testimages.ui.HomeActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,7 +20,7 @@ import retrofit2.Response
 private const val TAG = "LoginViewModel"
 class LoginViewModel : ViewModel() {
 
-    val connectionError = MutableLiveData("")
+    val loginInf = MutableLiveData<LoginResponse>()
     val serverResponse = MutableLiveData("")
     val messageLiveData = SingleLiveEvent<Message>()
     val events = SingleLiveEvent<LoginViewEvent>()
@@ -62,10 +64,6 @@ class LoginViewModel : ViewModel() {
 
                             events.postValue(LoginViewEvent.NavigateToHome)
 
-//                            myShared = context.getSharedPreferences("myshared", 0)
-//                            var editor: SharedPreferences.Editor = myShared!!.edit()
-//                            editor.putString("tokenLogin", response.body()!!.token)
-//                            editor.commit()
 
 
                         } else if(response.code() == 401) {
@@ -76,6 +74,7 @@ class LoginViewModel : ViewModel() {
                       //  connectionError.value = e.message.toString()
                         Toast.makeText(context,"Error exception",Toast.LENGTH_LONG).show()
                     }
+
                 }
 
             }
@@ -84,6 +83,8 @@ class LoginViewModel : ViewModel() {
                 Toast.makeText(context,"No Internet Connection",Toast.LENGTH_LONG).show()
 
             }
+
+
         })
 
       }

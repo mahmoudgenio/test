@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SplashActivity4"
+    android:background="#363636"
+    >
+
+    <TextView
+        android:id="@+id/send_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:textColor="#CCCCCC"
+        android:text="Send alarm"
+        />
+
+    <TextView
+        android:id="@+id/text_splash4"
+        android:layout_width="340dp"
+        android:layout_height="72dp"
+        android:paddingHorizontal="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/send_alarm"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#DCDCDC"
+        android:text="In the event in an attempt to steal the car,an alert will be sent to you"
+        />
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="270dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_splash4"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="230dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/car_splash4"
+        />
+
+    <ImageView
+        android:id="@+id/swipe_splash4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="140dp"
+        android:src="@drawable/swipe_splash4"
+        />
+
+    <Button
+        android:id="@+id/btn_splash4"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="50dp"
+        android:text="Next"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:backgroundTint="#FF1522"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

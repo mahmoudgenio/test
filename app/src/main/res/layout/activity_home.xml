@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.HomeActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/login_image"
+        />
+    <TextView
+        android:id="@+id/home_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DRMMR"
+        android:textStyle="bold"
+        android:textColor="#9E9D9D"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/image_profile"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/logo"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/image_rounded"
+        android:src="@drawable/car_image"
+        android:layout_marginStart="12dp"
+        />
+
+    <TextView
+        android:id="@+id/logout_home"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/image_profile"
+        android:background="@drawable/image_rounded"
+        android:text="LogOut"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#9E9D9D"
+        android:layout_marginEnd="12dp"
+        />
+
+    <TextView
+        android:id="@+id/hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="340dp"
+        android:text="Hello"
+        android:textSize="28sp"
+        android:textColor="#000000"
+        />
+
+    <TextView
+        android:id="@+id/name_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hello"
+        android:layout_marginTop="1dp"
+        android:text="User"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        />
+
+    <ImageView
+        android:id="@+id/start_park"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        app:layout_constraintTop_toBottomOf="@id/name_user"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/start_park"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/start_park"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:text="Park Your Car Now"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        />
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="centerInside"
+        android:src="@drawable/car_tesla"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

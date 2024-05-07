@@ -1,11 +1,15 @@
 package com.example.testimages.ui.register
 
 import android.Manifest
+import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
@@ -23,6 +27,8 @@ import com.example.testimages.R
 import com.example.testimages.common.showDialog
 import com.example.testimages.databinding.ActivityRegisterBinding
 import com.example.testimages.ui.login.LoginActivity
+import kotlinx.coroutines.delay
+import okhttp3.internal.notify
 
 private const val TAG = "RegisterActivity"
 
@@ -89,8 +95,11 @@ class RegisterActivity : AppCompatActivity() {
                     imageUrls,
                     applicationContext
                 )
-
+                val message: String? = "Congratulations"
+                showCustomDialogCongrats(message)
                 }
+
+
             }
 
 
@@ -285,6 +294,20 @@ class RegisterActivity : AppCompatActivity() {
 
 
         return isValid
+    }
+
+    private fun showCustomDialogCongrats(message: String?) {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.layout_custom_dailog_congrats)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val tvMessage: TextView = dialog.findViewById(R.id.tvMessage)
+
+        tvMessage.text = message
+
+        dialog.show()
     }
 
 

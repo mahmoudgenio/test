@@ -102,6 +102,7 @@ class RegisterViewModel : ViewModel() {
                         if (response.code() == 200) {
                           //  showLoading.postValue(false)
                             //serverResponse.value = "uploaded"
+
                             Toast.makeText(context,"success",Toast.LENGTH_LONG).show()
 
                                     // Navigate to login
@@ -111,6 +112,7 @@ class RegisterViewModel : ViewModel() {
 //                            editor.commit()
 
                                     events.postValue(RegisterViewEvents.NavigateToLogin)
+
 
 //                                    myShared = context.getSharedPreferences("myshared", 0)
 //                                    var editor: SharedPreferences.Editor = myShared!!.edit()
@@ -151,6 +153,8 @@ class RegisterViewModel : ViewModel() {
         cursor?.close()
         return filePath!!
     }
+
+
 
 
 

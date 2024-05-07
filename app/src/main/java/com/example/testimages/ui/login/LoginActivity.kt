@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.testimages.GroundFloor
 import com.example.testimages.R
 import com.example.testimages.databinding.ActivityLoginBinding
+import com.example.testimages.ui.HomeActivity
 import com.example.testimages.ui.register.RegisterActivity
 
 
@@ -44,6 +45,14 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
+       viewModel.loginInf.observe(this){
+           val name = it.displayName
+           val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+           intent.putExtra("displayName", name)
+           startActivity(intent)
+       }
+
+
         viewBinding.logInBtn.setOnClickListener {
 
             if (!(valid())) return@setOnClickListener
@@ -61,7 +70,8 @@ class LoginActivity : AppCompatActivity() {
         viewModel.events.observe(this) {
             when (it) {
                 LoginViewEvent.NavigateToHome -> {
-                    intent = Intent(this, GroundFloor::class.java)
+                    intent = Intent(this, HomeActivity::class.java)
+                  //  intent = Intent(this, GroundFloor::class.java)
                     startActivity(intent)
                     finish()
                 }

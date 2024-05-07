@@ -1,116 +1,196 @@
 package com.example.testimages
 
+import android.app.NotificationChannel
+import android.content.Context
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.app.Service
+import android.app.TaskStackBuilder
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.IBinder
+import android.os.Looper
 import android.util.Log
 import android.widget.ImageView
 import android.widget.Button
 import android.widget.Toast
-import com.example.testimages.Api.LoginResponse
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import com.example.testimages.Api.RetrofitService
+import com.example.testimages.ui.App
+import com.example.testimages.ui.HomeActivity
 import com.example.testimages.ui.login.LoginActivity
-import com.example.testimages.ui.login.LoginViewEvent
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class GroundFloor : AppCompatActivity() {
+    var myShared: SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ground_floor)
-        val firstFloor: Button = findViewById(R.id.first_floor)
-        var myShared: SharedPreferences? = null
+        val floor2: Button = findViewById(R.id.floor2)
 
-        firstFloor.setOnClickListener {
+        val back: ImageView = findViewById(R.id.back)
+        myShared = getSharedPreferences("myshared", 0)
+
+
+        floor2.setOnClickListener {
             val intent = Intent(this@GroundFloor, FirstFloor::class.java)
             startActivity(intent)
             finish()
         }
 
-//        val place1: ImageView = findViewById(R.id.place1)
-//        val place2: ImageView = findViewById(R.id.place2)
-//        val place3: ImageView = findViewById(R.id.place3)
-//        val place4: ImageView = findViewById(R.id.place4)
-//        val place5: ImageView = findViewById(R.id.place5)
-//        val place6: ImageView = findViewById(R.id.place6)
-//        val place7: ImageView = findViewById(R.id.place7)
-//        val place8: ImageView = findViewById(R.id.place8)
-//        val place9: ImageView = findViewById(R.id.place9)
-//        val place10: ImageView = findViewById(R.id.place10)
+        back.setOnClickListener {
+            val intent = Intent(this@GroundFloor, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
-// Check the state of each parking place
-//        val isCarInPlace1: Boolean = false
-//        val isCarInPlace2: Boolean = true
-//        val isCarInPlace3: Boolean = true
-//        val isCarInPlace4: Boolean = true
 
-// Set the image resource based on the state of each parking place
-//        place1.setImageResource(if (isCarInPlace1) R.drawable.car_image else R.drawable.available)
-//        place2.setImageResource(if (isCarInPlace2) R.drawable.car_image else R.drawable.available)
-//        place3.setImageResource(if (isCarInPlace3) R.drawable.car_image else R.drawable.available)
-//        place4.setImageResource(if (isCarInPlace4) R.drawable.car_image else R.drawable.available)
-
-        getReading("")
+        val sharedPref = getSharedPreferences("myshared", 0)
+        val token = sharedPref.getString("tokenLogin", "")
+        getReadingGroundFloor(token!!)
 
     }
 
 
-//    val sharedPref = getSharedPreferences("myshared", 0)
-//    val token = sharedPref.getString("tokenLogin", "false")
-
-    fun getReading(
+    fun getReadingGroundFloor(
         tokenAuth: String
     ) {
-       // Toast.makeText(this@GroundFloor,"",Toast.LENGTH_LONG).show()
-       // if (token != null) {
-            RetrofitService.getInstance()
-                .sendToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJNYWhtb3VkIG1vc3RhZmEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJnZW5pb29AZ21haWwuY29tIiwiZXhwIjoxNzA5OTA0NTUxLCJpc3MiOiJodHRwOi8vdGhlZnRwYXJraW5nLnNvbWVlLmNvbS8iLCJhdWQiOiJNeVNlY3VyZVVzZXJzIn0.p-RgkfrCeF4BUWXacwvNGnk1X_0QXlMelFSMb9O3aiM")
-                .enqueue(object : Callback<UltrasonicResponseItem> {
-                    override fun onResponse(
-                        call: Call<UltrasonicResponseItem>,
-                        response: Response<UltrasonicResponseItem>
-                    ) {
+        RetrofitService.getInstance()
+            .sendToken("Bearer $tokenAuth")
+            .enqueue(object : Callback<List<UltrasonicResponseItem>> {
+                override fun onResponse(
+                    call: Call<List<UltrasonicResponseItem>>,
+                    response: Response<List<UltrasonicResponseItem>>
+                ) {
 
-                            if (response.isSuccessful) {
-                                val ultrasonicValue = response.body()?.readingStatus
-                                val place1: ImageView = findViewById(R.id.place1)
-                                val place2: ImageView = findViewById(R.id.place2)
-                                val place3: ImageView = findViewById(R.id.place3)
-                                val place4: ImageView = findViewById(R.id.place4)
-                                val place5: ImageView = findViewById(R.id.place5)
-                                val place6: ImageView = findViewById(R.id.place6)
-                                val place7: ImageView = findViewById(R.id.place7)
-                                val place8: ImageView = findViewById(R.id.place8)
-                                val place9: ImageView = findViewById(R.id.place9)
-                                val place10: ImageView = findViewById(R.id.place10)
+                    // Toast.makeText(this@GroundFloor, "yees", Toast.LENGTH_LONG).show()
+                    // val list = listOf<>()
+                    val responseList = response.body()
 
-                                if (ultrasonicValue == "0") {
-                                    place2.setImageResource(R.drawable.available)
-                                } else if (ultrasonicValue != "0") {
-                                    place2.setImageResource(R.drawable.car_image)
-                                }else if(response.code() == 401){
-                                    // un Authorized
-                                    // Navigate to login
-                                    Toast.makeText(this@GroundFloor,"You are not Authorized",Toast.LENGTH_LONG).show()
-                                    intent = Intent(this@GroundFloor, LoginActivity::class.java)
-                                    startActivity(intent)
-                                    finish()
-                                }
-
-                            }
+                    val ultrasonicValueList =
+                        if (response.body() != null && response.body()!!.size >= 2) {
+                            val secondItem = responseList?.get(1)
+                            listOfNotNull(secondItem?.readingStatus)
+                        } else {
+                            emptyList()
                         }
 
 
-                    override fun onFailure(call: Call<UltrasonicResponseItem>, t: Throwable) {
-                        Toast.makeText(this@GroundFloor,"No Internet Connection",Toast.LENGTH_LONG).show()
+                    //==========================================
 
+                    //=========================================
+
+
+                    // response.body()?.forEach{
+                    val ultrasonicValue = response.body()?.get(1)?.readingStatus
+                    val place1: ImageView = findViewById(R.id.place11)
+                    val place2: ImageView = findViewById(R.id.place12)
+//                    val place3: ImageView = findViewById(R.id.place13)
+//                    val place4: ImageView = findViewById(R.id.place14)
+//                    val place5: ImageView = findViewById(R.id.place15)
+//                    val place6: ImageView = findViewById(R.id.place16)
+//                    val place7: ImageView = findViewById(R.id.place17)
+//                    val place8: ImageView = findViewById(R.id.place18)
+//                    val place9: ImageView = findViewById(R.id.place19)
+//                    val place10: ImageView = findViewById(R.id.place20)
+
+                    if (ultrasonicValue == "1") {
+                        // place1.setImageResource(R.drawable.available)
+                        place1.setImageResource(R.drawable.place1)
+
+
+                        // place4.setImageResource(R.drawable.available)
+//                        showLocalNotification(
+//                            this@GroundFloor,
+//                            "New Notification",
+//                            "This is a local notification"
+//                        )
+
+                    } else if (ultrasonicValue != "1") {
+                        place1.setImageResource(R.drawable.car1)
+                        place1.layoutParams.width = 250
+                        place1.layoutParams.height = 250
+
+
+
+
+                        showLocalNotification(
+                            this@GroundFloor,
+                            "New Notification",
+                            "This is a local notification"
+                        )
                     }
-                })
+                    //}
 
-        }
+                    else {
+                        Toast.makeText(
+                            this@GroundFloor,
+                            "You are not Authorized",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        intent = Intent(this@GroundFloor, LoginActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+
+                }
+
+
+                override fun onFailure(call: Call<List<UltrasonicResponseItem>>, t: Throwable) {
+                    Toast.makeText(this@GroundFloor, "No ${t.message}", Toast.LENGTH_LONG).show()
+                    Log.d("msg", "this is ${t.message}")
+
+                }
+            })
     }
+
+
+    fun showLocalNotification(context: Context, title: String, message: String) {
+        val notificationManager =
+            ContextCompat.getSystemService(context, NotificationManager::class.java)
+        val channelId = "my_channel_id"
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel =
+                NotificationChannel(
+                    channelId,
+                    "My Channel",
+                    NotificationManager.IMPORTANCE_DEFAULT
+                )
+            notificationManager?.createNotificationChannel(channel)
+        }
+
+        val notificationBuilder = NotificationCompat.Builder(context, channelId)
+            .setContentTitle(title)
+            .setContentText(message)
+            .setSmallIcon(R.drawable.logo)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+
+
+        notificationManager?.notify(1, notificationBuilder.build())
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
