@@ -32,8 +32,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val nameUser = findViewById<TextView?>(R.id.name_user)
-        nameUser.text = intent.getStringExtra("displayName")
+//        val nameUser = findViewById<TextView?>(R.id.name_user)
+//        nameUser.text = intent.getStringExtra("displayName")
 
 
 //        nameUser = findViewById(R.id.name_user)

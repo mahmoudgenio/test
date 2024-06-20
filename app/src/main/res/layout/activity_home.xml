@@ -37,7 +37,8 @@
         app:layout_constraintTop_toTopOf="@id/logo"
         android:layout_marginTop="13dp"
         android:background="@drawable/image_rounded"
-        android:src="@drawable/car_image"
+        android:src="@drawable/mahmoud1"
+        android:scaleType="centerCrop"
         android:layout_marginStart="12dp"
         />
 
@@ -78,7 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hello"
         android:layout_marginTop="1dp"
-        android:text="User"
+        android:text="Mahmoud"
         android:textSize="50sp"
         android:textStyle="bold"
         android:textColor="#000000"

@@ -36,6 +36,14 @@ interface RetrofitService {
         @Field("Password") password : String
     ):Call<LoginResponse>
 
+
+    @FormUrlEncoded
+    @POST("api/Ultrasonics/SelectPlace")
+    fun selectPlace(
+        @Field("Id") id : Int,
+        @Field("Token") tokenPlace : String
+    ):Call<ResponseBody>
+
     @FormUrlEncoded
     @POST("api/Accounts/Logout")
     fun logout(

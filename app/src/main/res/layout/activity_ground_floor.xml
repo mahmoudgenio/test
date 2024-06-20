@@ -35,11 +35,12 @@
         />
 
     <ImageView
-        android:id="@+id/place11"
+        android:id="@+id/place1"
         android:layout_width="18dp"
         android:layout_height="25dp"
         app:layout_constraintStart_toStartOf="@id/line_left"
         app:layout_constraintBottom_toTopOf="@id/line2"
+        app:layout_constraintTop_toBottomOf="@id/line1"
         app:layout_constraintWidth_max="250dp"
         app:layout_constraintHeight_max="250dp"
         android:src="@drawable/place1"
@@ -86,7 +87,7 @@
 
 
     <ImageView
-        android:id="@+id/place12"
+        android:id="@+id/place2"
         android:layout_width="18dp"
         android:layout_height="25dp"
         app:layout_constraintTop_toBottomOf="@id/line2"
@@ -111,7 +112,7 @@
 
 
     <ImageView
-        android:id="@+id/place13"
+        android:id="@+id/place3"
         android:layout_width="18dp"
         android:layout_height="25dp"
         app:layout_constraintTop_toBottomOf="@id/line3"
@@ -134,13 +135,14 @@
         />
 
     <ImageView
-        android:id="@+id/place14"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/place4"
+        android:layout_width="18dp"
+        android:layout_height="25dp"
         app:layout_constraintTop_toBottomOf="@id/line4"
         app:layout_constraintStart_toStartOf="@id/line_left"
         app:layout_constraintBottom_toTopOf="@id/line5"
-        android:src="@drawable/car1"
+        android:src="@drawable/place4"
+        android:layout_marginStart="40dp"
         android:rotation="1"
         />
 
@@ -167,14 +169,15 @@
         />
 
     <ImageView
-        android:id="@+id/place16"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/place5"
+        android:layout_width="18dp"
+        android:layout_height="25dp"
         app:layout_constraintTop_toBottomOf="@id/line7"
         app:layout_constraintEnd_toEndOf="@id/line_right"
         app:layout_constraintBottom_toTopOf="@id/line8"
-        android:src="@drawable/car1"
-        android:rotation="130"
+        android:src="@drawable/place5"
+        android:layout_marginEnd="40dp"
+        android:rotation="1"
         />
 
     <ImageView
@@ -183,7 +186,7 @@
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="@id/line_right"
         app:layout_constraintTop_toTopOf="@id/line2"
-        app:layout_constraintTop_toBottomOf="@id/place16"
+        app:layout_constraintTop_toBottomOf="@id/place10"
         android:background="@drawable/line"
         />
 
@@ -193,13 +196,13 @@
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="@id/line_right"
         app:layout_constraintTop_toTopOf="@id/line3"
-        app:layout_constraintTop_toBottomOf="@id/place16"
+        app:layout_constraintTop_toBottomOf="@id/place10"
         android:background="@drawable/line"
         />
 
 
     <ImageView
-        android:id="@+id/place9"
+        android:id="@+id/place6"
         android:layout_width="18dp"
         android:layout_height="25dp"
         app:layout_constraintTop_toBottomOf="@id/line8"
@@ -217,19 +220,20 @@
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="@id/line_right"
         app:layout_constraintTop_toTopOf="@id/line4"
-        app:layout_constraintTop_toBottomOf="@id/place16"
+        app:layout_constraintTop_toBottomOf="@id/place10"
         android:background="@drawable/line"
         />
 
     <ImageView
-        android:id="@+id/place18"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/place7"
+        android:layout_width="18dp"
+        android:layout_height="25dp"
         app:layout_constraintTop_toBottomOf="@id/line9"
         app:layout_constraintEnd_toEndOf="@id/line_right"
         app:layout_constraintBottom_toTopOf="@id/line10"
-        android:src="@drawable/car1"
-        android:rotation="130"
+        android:src="@drawable/place7"
+        android:layout_marginEnd="40dp"
+        android:rotation="1"
         />
 
     <ImageView
@@ -238,12 +242,12 @@
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="@id/line_right"
         app:layout_constraintTop_toTopOf="@id/line5"
-        app:layout_constraintTop_toBottomOf="@id/place16"
+        app:layout_constraintTop_toBottomOf="@id/place10"
         android:background="@drawable/line"
         />
 
     <ImageView
-        android:id="@+id/place19"
+        android:id="@+id/place8"
         android:layout_width="18dp"
         android:layout_height="25dp"
         app:layout_constraintTop_toBottomOf="@id/line10"
@@ -404,7 +408,7 @@
         android:layout_height="50dp"
         android:background="@drawable/line"
         app:layout_constraintEnd_toEndOf="@id/line_right"
-        app:layout_constraintTop_toBottomOf="@id/place16"
+        app:layout_constraintTop_toBottomOf="@id/place10"
         app:layout_constraintTop_toTopOf="@id/line7" />
 
     <ImageView
